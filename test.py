@@ -1,1 +1,1 @@
-print("hello nigga")
+print("hello nigga\n"*8)
