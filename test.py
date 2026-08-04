@@ -1,9 +1,14 @@
-my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-to_find = int(input("what do you want to find?: "))
-found = False
-for i in range(len(my_list)):
-    if my_list[i] == to_find:
-        print(f"index is {i}")
-        break
-else:
-    print("absent")
+class Enemy:
+    def __init__(self,enemy_id):
+        self.id = enemy_id
+        self.hp = 100
+    def __repr__(self):
+        return f"Enemy {self.id} has {self.hp} hp"
+    def take_damage(self,amount_damage):
+        self.hp -= amount_damage
+        if self.hp <= 0:
+            print(f"Enemy{self.id} is dead")
+enemies = [Enemy(i) for i in range(1,11)]
+print(enemies)
+enemies[3].take_damage(60)
+print(enemies)
