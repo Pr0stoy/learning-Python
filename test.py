@@ -1,18 +1,9 @@
-my_list = []
-length = int(input("How many elements do you want to sort? : "))
-for i in range(length):
-      el = int(input("Add number to the list : "))
-      my_list.append(el)
-print(my_list)
-  # It's a little fake, we need it to enter the while loop.
-def fun(x):
-    swapped = True
-    while swapped:
-        swapped = False  # no swaps so far
-        for i in range(len(x)-1):
-            if x[i] > x[i + 1]:
-                swapped = True  # a swap occurred!
-                x[i], x[i + 1] = x[i + 1], x[i]
-    
-    return x
-print(fun(my_list))
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+to_find = int(input("what do you want to find?: "))
+found = False
+for i in range(len(my_list)):
+    if my_list[i] == to_find:
+        print(f"index is {i}")
+        break
+else:
+    print("absent")
