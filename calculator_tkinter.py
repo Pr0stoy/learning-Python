@@ -14,24 +14,40 @@ buttons = [
 ]
 
 def solve():
-    problem = entry.get()
-    problem_split_number = re.split(r"[+*/-]",problem)
-    problem_split_operator = re.findall(r"[+*/-]",problem)
-    clear()
-    if problem_split_operator[0] == "/" and problem_split_number[1] == "0":
-        result = "are you stupid?"
-    elif problem_split_operator[0] == "*":
-        result = int(problem_split_number[0])*int(problem_split_number[1])
-    elif problem_split_operator[0] == "+":
-        result = int(problem_split_number[0])+int(problem_split_number[1])
-    elif problem_split_operator[0] == "-":
-        result = int(problem_split_number[0])-int(problem_split_number[1])
-    elif problem_split_operator[0] == "/":
-        result = int(problem_split_number[0])/int(problem_split_number[1])
-    else:
-        result = "error"
-    entry.insert(0,result)
-
+    try:    
+        problem = entry.get()
+        clear()
+        if problem[0] == "-":
+            problem_split_number = re.split(r"[+*/-]",problem)
+            problem_split_operator = re.findall(r"[+*/-]",problem)
+            print(problem_split_number)
+            print(problem_split_operator)
+            if problem_split_operator[1] == "/" and problem_split_number[2] == "0":
+                result = "are you stupid?"
+            elif problem_split_operator[1] == "*":
+                result = -1*(int(problem_split_number[1]))*int(problem_split_number[2])
+            elif problem_split_operator[1] == "+":
+                result = (-1*(int(problem_split_number[1])))+int(problem_split_number[2])
+            elif problem_split_operator[1] == "-":
+                result = -1*(int(problem_split_number[1]))-int(problem_split_number[2])
+            elif problem_split_operator[1] == "/":
+                result = -1*(int(problem_split_number[1]))/int(problem_split_number[2])
+        else:
+            problem_split_number = re.split(r"[+*/-]",problem)
+            problem_split_operator = re.findall(r"[+*/-]",problem)
+            if problem_split_operator[0] == "/" and problem_split_number[1] == "0":
+                result = "are you stupid?"  
+            elif problem_split_operator[0] == "*":
+                result = int(problem_split_number[0])*int(problem_split_number[1])
+            elif problem_split_operator[0] == "+":
+                result = int(problem_split_number[0])+int(problem_split_number[1])
+            elif problem_split_operator[0] == "-":
+                result = int(problem_split_number[0])-int(problem_split_number[1])
+            elif problem_split_operator[0] == "/":
+                result = int(problem_split_number[0])/int(problem_split_number[1])
+        entry.insert(0,result)
+    except:
+        entry.insert(0,"you've done smth wrong")
 
 def enter_num(value):
     entry.insert(END,value)
